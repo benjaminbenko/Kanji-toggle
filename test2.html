@@ -3,14 +3,21 @@
 <head>
 	<script src="jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
-		$(function(){
-			$('#kanji-01').on("click",function() {
-    			$('#circle1').css({ "fill": "#91B54D" });
-			});
-		});
-		$(function(){
-			$('#kanji-02').on("click",function() {
-    			$('#circle2').css({ "fill": "#91B54D" });
+		$(function() {
+			// const layer = $('#Layer_2');
+			// for (let x = 160; x+=220; x <= 1040) {
+				// for (let y = 120; y += 220; y <= 1220) {
+				// 	console.log(`<circle fill="#EFEFEF" cx="${x}" cy="${y}" r="100"/>`);
+				// 	// layer.append(`<circle fill="#EFEFEF" cx="${x}" cy="${y}" r="100"/>`);
+				// }
+			// }
+
+
+			$('circle').on("click", function() {
+  				const circle = $(this);
+					const value = circle.attr('value');
+					circle.css({ "fill": value === 'on' ? "#EFEFEF" : "#91B54D"});
+					circle.attr('value', value === 'on' ? 'off' : 'on');
 			});
 		});
 	</script>
@@ -27,8 +34,8 @@
 <g id="Layer_1">
 </g>
 <g id="Layer_2">
-	<a id="kanji-01" href="#"><circle value="off" id="circle1" fill="#EFEFEF" cx="160" cy="120" r="100"/></a>
-	<a id="kanji-switch" href="#"><circle value="off" fill="#EFEFEF" cx="380" cy="120" r="100"/></a>
+	<circle fill="#EFEFEF" cx="160" cy="120" r="100"/>
+	<circle fill="#EFEFEF" cx="380" cy="120" r="100"/>
 	<circle fill="#EFEFEF" cx="600" cy="120" r="100"/>
 	<circle fill="#EFEFEF" cx="820" cy="120" r="100"/>
 	<circle fill="#EFEFEF" cx="1040" cy="120" r="100"/>
